@@ -1,0 +1,60 @@
+---
+title: "Course Project - Exploratory data analysis"
+output: html_document
+---
+This assignment uses data from the UC Irvine Machine Learning Repository, a popular repository for machine learning datasets. In particular, we will be using the “Individual household electric power consumption Data Set” which I have made available on the course web site:
+
+**Dataset**: Electric power consumption [20Mb]
+
+**Description**: Measurements of electric power consumption in one household with a one-minute sampling rate over a period of almost 4 years. Different electrical quantities and some sub-metering values are available.
+
+The dataset has 2,075,259 rows and 9 columns. First calculate a rough estimate of how much memory the dataset will require in memory before reading into R. Make sure your computer has enough memory
+
+##Reading in data
+
+###Caculating memory requirements:
+
+The dataset has 2,075,259 rows and 9 columns. As a rule of thumb we would need **0.278 GB** memory for reading in the data
+
+###Read using the Read.table() function
+
+The data was then loaded to R using the Read.table function with the parameters 
+StringAsFactors=FALSE and header=T. The column Date is then converted to an R date format using the as.Date() function. The date and time column were then concatenated into one column. Using the strptime() function, that column was then converted into a calender date/time format, which will be useful for the plotting.
+
+The overall goal of the exercise is simply to examine how household energy usage varies over a 2-day period in February, 2007. 
+
+
+##Subsetting the data:
+
+The data was then subsetted only for the 1st and 2nd of February 2007. This was done using the subset() function.
+
+##Plotting the data:
+
+###Plot1:
+For plot1, we would to like to see the frequency of the global active power for the firt two days of February, 2007. To perform such a visualization, we use the hist() function in the base package and set the set the color to red and specify the xaxis label to be global active power (Kilowatt). The plot is saved to a png file named plot1.png with height and width parameter set to be 450.
+
+###Plot2:
+For plot1, we would to like to see the distribution or the fluctuations of the global active power for the firt two days of February, 2007. To perform such a visualization, we use the plot() function in the base package with the type="n" parameter to specify the lines() function to connect all the points using a line. The plot is saved to a png file named plot2.png with height and width parameter set to be 450.
+
+###Plot3:
+For plot1, we would to like to see the distribution or the fluctuations of the sub metering variable for the firt two days of February, 2007 and we would like to visualize the fluctuations of the sub_metering_1, sub_metering_2 and sub_metering_3 variables in the same plot. To perform such a visualization, we use the plot() function in the base package with the type="n" parameter to specify the lines() function to connect all the points using a line. The lines were colored balck for the sub_metering_1 term and red and blue respectively for the sub_meterin_2 and sub_metering_3 variable.
+The legend of the plot was then made using the legend() function. The plot is saved to a png file named plot3.png with height and width parameter set to be 450.
+
+###Plot4:
+For plot4, we would like to have 4 plots in a single plot screen. We set the par(mfrow=c(2,2)) and mar=c(4,4,2,2)) to specify that we would like a 2 row and 2 column plotting screen. The global active power plot and the energy sub metering plots were just a copy of the plot2 and plot3 exercise. The legend() function for the energy metering plot has the follwing parameters set: bty = "n",cex=1 & lty=1
+In addition, we plot the distribution of voltage and global reactive power variaable for the two day period.
+
+The plot is saved to a png file named plot4.png with height and width parameter set to be 450.
+
+
+
+
+
+
+
+
+
+
+
+
+
